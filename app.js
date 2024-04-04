@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
+const helmet = require("helmet");
 
 const multer = require("multer");
 
@@ -51,7 +52,7 @@ const userRoutes = require("./routes/user");
 const adminRoutes = require("./routes/admin");
 
 app.use(cors());
-
+app.use(helmet());
 app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: false }));
 app.use(
